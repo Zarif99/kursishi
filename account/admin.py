@@ -1,11 +1,11 @@
 from django.contrib import admin
+from django.contrib import messages
 from django.contrib.admin import ModelAdmin
-
-from account.models import User, Sponsor, Mentor
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
 from django.utils.translation import ngettext
-from django.contrib import messages
+
+from account.models import User, Sponsor, Mentor
 
 
 @admin.register(User)

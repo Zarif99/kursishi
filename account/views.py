@@ -1,10 +1,10 @@
 from django.contrib.auth import login
-from django.shortcuts import render
 from django.shortcuts import redirect
+from django.shortcuts import render
 from django.urls import reverse
-from django.views.generic.base import View
-from django.views.generic import ListView
 from django.views.generic import DetailView
+from django.views.generic import ListView
+from django.views.generic.base import View
 
 from .forms import UserForm
 from .models import Mentor, Sponsor
