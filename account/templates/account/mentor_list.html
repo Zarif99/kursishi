@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Mentor
+{% endblock %}
+{% block content %}
+    <section class="features2 cid-slq0ZBExQm carousel slide testimonials-slider cid-slpZwRkopg"
+             id="testimonials-slider1-7">
+        <div class="container text-center">
+            <h2 class="pb-5 mbr-fonts-style display-2">
+                KISS Bootcamp mentors
+            </h2>
+            <div class="container">
+                <div class="row">
+                    {% for mentor in mentor_list %}
+                        <div class="col-sm-3">
+                            <div class="card card-pad card-box">
+                                <img class="card-img-top img-fluid " src="{{ mentor.image.url }}" alt="Mentor image">
+                                <div class="card-block">
+                                    <h4 class="card-title card-pad">{{ mentor.user.get_full_name }}</h4>
+                                    <p class="card-text card-pad" >
+                                        {{ mentor.info|truncatewords:15 }}
+                                        <a href="{{ mentor.get_absolute_url }}">More...</a>
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </section>
+{% endblock %}
+

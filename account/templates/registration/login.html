@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Login - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <section class="features2 cid-slq0ZBExQm">
+        <form action="{% url 'login' %}" method="post" novalidate>
+            <h1 class="container text-center">Login page</h1>
+            {% csrf_token %}
+            <div class="container">
+                {% for foo in form %}
+                    {{ foo.label }}
+                    <p>{{ foo }}</p>
+                    {% if foo.errors %}
+                        <p>{{ foo.errors }}</p>
+                    {% endif %}
+                {% endfor %}
+                <a href="{% url 'password_reset' %}">Forgot your password?</a>
+                <button class="mt-2" type="submit">Login</button>
+            </div>
+        </form>
+    </section>
+{% endblock %}
