@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Detail Task - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+            <a href="{{ todo.get_update_url }}">
+                <button type="button" class="btn btn-primary">Update</button>
+            </a>
+        </div>
+        <div class="btn-group mr-2" role="group" aria-label="Second group">
+            <a href="{{ todo.get_delete_url }}">
+                <button type="button" class="btn btn-secondary">Delete</button>
+            </a>
+        </div>
+    </div>
+    <div class="card mt-5">
+        <div class="card-header">
+            {{ todo.key }}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ todo.type }}</h5>
+            <p class="card-text">{{ todo.summary }}</p>
+            <p>
+                Task is given to {{ todo.assignee }} from {{ todo.reporter }}
+            </p>
+        </div>
+        <div class="card-footer">
+            {{ todo.created }}
+        </div>
+    </div>
+{% endblock %}

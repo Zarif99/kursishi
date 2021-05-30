@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Delete task
+{% endblock %}
+
+
+{% block content %}
+    <section class="features2 cid-slq0ZBExQm" id="features2-b">
+        <div class="container">
+            <h4> Are you really want to delete this <strong>{{ todo.key|title }}</strong> task</h4>
+            <a href="{{ todo.get_absolute_url }}">
+                <button class="btn btn-primary mb-2">Cancel</button>
+            </a>
+            <form action="{{ todo.get_delete_url }}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger  mb-5">Delete</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}

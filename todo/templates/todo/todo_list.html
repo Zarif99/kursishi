@@ -1,1 +1,59 @@
-{% include 'index.html'%}
+{% extends 'base.html' %}
+
+{% block title %}
+    List of all Tasks
+{% endblock %}
+
+
+{% block content %}
+    <table class="table mt-5">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Type</th>
+            <th scope="col">Key</th>
+            <th scope="col">Summary</th>
+            <th scope="col">Assignee</th>
+            <th scope="col">Reporter</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Status</th>
+            <th scope="col">Created</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for todo in todo_list %}
+
+
+                <tr>
+                    {#        ('type', 'key', 'summary', 'assignee', 'reporter', 'priority', 'status', 'created') #}
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                             class="bi bi-circle-fill" viewBox="0 0 16 16" style="color: {{ todo.type }}">
+                            <circle cx="8" cy="8" r="8"/>
+                        </svg>
+                        {#                {{ todo.type }}</td>#}
+                    <td>
+                    <a href="{{ todo.get_absolute_url }}">{{ todo.key }}</a>
+
+                    </td>
+                    <td>{{ todo.summary|truncatewords:10 }}</td>
+                    <td>{{ todo.assignee }}</td>
+                    <td>{{ todo.reporter }}</td>
+                    <td>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                             class="bi bi-circle-fill" viewBox="0 0 16 16" style="color: {{ todo.priority }}">
+                            <circle cx="8" cy="8" r="8"/>
+                        </svg>
+                    </td>
+                    {#            <td>{{ todo.priority }}</td>#}
+                    <td>{{ todo.status }}</td>
+                    <td>{{ todo.created }}</td>
+                </tr>
+
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}
