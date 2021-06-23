@@ -4,5 +4,6 @@
 
 Django project has two apps: ```account``` and ```todo```
 
-```account``` app is responsible to registrate users to our system
+### ```account``` app is responsible to registrate users to our system
 
+### ```todo``` app is responsible to divide project to tasks and give to developers
